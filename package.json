@@ -6,9 +6,28 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "build": "babel-node tools/build-cli.js"
+    "build": "babel-node tools/build-cli.js",
+    "lint": "node_modules/.bin/eslint ./src",
+    "test": "NODE_ENV=testing jest "
   },
-  "author": "auplopwar@barclaycardus.com",
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "setupFiles": [
+      "./test/jestsetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testMatch": [
+      "**/test/**/*.spec.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    }
+  },
+  "author": "aniket.uplopwar@gmail.com",
   "license": "ISC",
   "dependencies": {
     "react": "^16.2.0",
@@ -19,6 +38,7 @@
     "babel-cli": "^6.11.4",
     "babel-core": "^6.13.2",
     "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-dev-expression": "^0.2.1",
@@ -33,6 +53,20 @@
     "babel-standalone": "^6.21.1",
     "child-process-promise": "^2.2.1",
     "colors": "^1.1.2",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "enzyme-to-json": "^3.1.1",
+    "eslint": "^2.11.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-import-resolver-node": "^0.2.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.2.2",
+    "eslint-plugin-react": "^5.1.1",
+    "jasmine-core": "^2.4.1",
+    "jest": "^21.2.1",
+    "phantomjs-polyfill": "0.0.2",
+    "phantomjs-prebuilt": "^2.1.7",
     "fs": "0.0.1-security",
     "fs-extra": "^4.0.2",
     "fs-promise": "^2.0.3",
