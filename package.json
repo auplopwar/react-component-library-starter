@@ -8,7 +8,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build": "babel-node tools/build-cli.js"
   },
-  "author": "auplopwar@barclaycardus.com",
+  "author": "aniket.uplopwar@gmail.com",
   "license": "ISC",
   "dependencies": {
     "react": "^16.2.0",
